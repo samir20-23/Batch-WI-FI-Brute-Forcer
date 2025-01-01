@@ -1,95 +1,106 @@
-# Batch Wi-Fi Brute Forcer
-An active attack tool against Wi-Fi networks with internal CMD commands.
+<div id="badges" align="center">
 
-This program is created to be a proof of concept that it is possible
-to write a working Wi-Fi attack tool with Batchfiles since there 
-are countless examples on the internet that claims to be legit
-hacking tools, working on CMD. While this tool does not claim
-a 100% success ratio, it still works if the target Wi-Fi has
-weak password. :)
+[![Typing SVG](https://readme-typing-svg.herokuapp.com?color=63CF15&lines=Wi-Fi+Brute+Forcer;Batch+Wi-Fi+Brute+Force+Tool)](https://git.io/typing-svg)
 
-## Usage
+</div>
 
-### Interface initialization
-The program automatically detects your wireless interfaces when you execute the batch file.
-If it finds only one, it will select it as default. If there are multiple interfaces,
-the program will ask you to choose one. If none exist, it will stay "not_defined".
+---
 
-> You can later change the interface by typing `interface` on the main menu.
-> This will bring the interface initialization screen back.
+# Batch Wi-Fi Brute Forcer  
+An active attack tool utilizing Batch commands to interact with Wi-Fi networks via CMD.
 
-### Scan
-When you type `scan` at the main menu, the program will enumerate all Wi-Fi networks
-available from the selected wireless interface. You can choose one by typing the number
-associated with an SSID.
+This program demonstrates how Batch files can be used to create a functional Wi-Fi network interaction tool. It showcases the use of built-in Windows CMD utilities for scanning networks, selecting targets, and attempting password combinations using a wordlist.
 
-> No Name could mean that the network is hidden. You cannot attack that network.
+---
 
-> Performing a scan disconnects the interface from the network that it has connected previously.
+## **Features**
+- **Interface Initialization**:  
+  Automatically detects available wireless interfaces. If multiple interfaces are found, the user can select one.  
+  - Command: `interface` (to manage and re-select the interface).  
 
-### Selecting a wordlist
-A wordlist file is already provided in the repository. If you want to use a custom
-wordlist, you have to specify the file you are going to use by typing `wordlist` on the 
-main menu and then typing the absolute or relative path of the wordlist file.
+- **Network Scanning**:  
+  Enumerates all available Wi-Fi networks from the selected interface and lists them for selection.  
+  - Command: `scan` (to scan for networks).
 
-### Attacking
-Simply type `attack` and the program will show you a warning screen that this process is going
-to delete the profile associated with the SSID if you have connected to it before.
-It means you will lose the password you entered while connecting to that SSID before.
-Save it before using the attack.
+- **Custom Wordlist Support**:  
+  Allows the user to specify a custom wordlist file for password attempts. A default wordlist is provided in the repository.  
+  - Command: `wordlist <path_to_file>` (to set a custom wordlist).
 
-### Counter
-When a connection is attempted with `netsh` to a network, it takes time to establish the connection. To check whether the connection is successful,
-the program repeatedly queries the connection status of the selected interface. A counter value controls how many times this query will be done.
-If not changed, the counter value is 10, and counts down after each query for each password combination. 
+- **Attack Execution**:  
+  Attempts to connect to the selected Wi-Fi network using each password from the wordlist.  
 
-> If an authentication or association is detected, this value is increased by 5 to ensure a successful connection.
+- **Connection Counter**:  
+  Tracks the number of connection attempts and increases the counter dynamically if association/authentication is detected.  
+  - Command: `counter <value>` (to customize the number of queries).
 
-## Limitations
-- This program has been tested unsuccessfully on Windows 7 and tested successfully on Windows 10 and 11. Since some commands may differ in terms of output between Windows versions, it is not expected to work on previous versions.
+- **Result Logging**:  
+  If the attack is successful, the result (network name and password) is saved to `result.txt`.  
 
-- ANSI escape sequences used in the terminal were added to the Windows Console in the Windows 10 version 1511, previous versions are not expected to run this program.
+---
 
-- There is a strict dependency on the command line utility `netsh`, meaning that it cannot understand "Unicode" characters. Only ASCII characters are supported for network names.
+## **Usage Instructions**
 
-- The command line utilities cannot be forced to output English-only text, which means parsing particularly depends on English-based output from command line utilities. Any other system language is not expected to be compatible with this program.
+### 1. Interface Initialization:
+- On program execution, the wireless interface is automatically detected.  
+- If there are multiple interfaces, the user will be prompted to choose one.  
+- To change the interface later, use the `interface` command.
 
-- Speed is significantly slow due to its nature.
+### 2. Scanning for Networks:
+- Use the `scan` command to enumerate available networks.  
+- Each network will be displayed with an associated number.  
+- Choose the desired network by entering its number. Hidden networks (labeled "No Name") cannot be selected.
 
-- Cannot attack hidden networks.
+### 3. Selecting a Wordlist:
+- The program includes a default wordlist file, but custom wordlists can be specified.  
+- Use the `wordlist` command followed by the absolute or relative path to the file.
 
-## Result file
-If an attack is successful, the result is automatically written to `result.txt`.
+### 4. Executing the Attack:
+- Use the `attack` command to initiate the process. The program will test each password from the wordlist against the selected network.  
+- The program dynamically adjusts the connection counter to ensure a reliable connection check.
 
+### 5. Adjusting the Counter:
+- The counter controls how many connection attempts are made for each password. Default value: **10**.  
+- Use the `counter` command to modify the value.
 
-## Help screen
-```txt
-Commands
+### 6. Viewing Results:
+- Successful attacks are logged in the `result.txt` file, storing the SSID and corresponding password.
 
- - help             : Displays this page
- - wordlist         : Provide a wordlist file     
- - scan             : Performs a WI-FI scan       
- - interface        : Open Interface Management   
- - attack           : Attacks selected WI-FI      
- - counter          : Sets the attack counter     
- - exit             : Close the program
+---
 
- For more information, please refer to "README.md".
+## **Commands**
+| Command     | Description                                  |  
+|-------------|----------------------------------------------|  
+| `help`      | Displays the help screen.                   |  
+| `wordlist`  | Specify a custom wordlist file.             |  
+| `scan`      | Performs a Wi-Fi network scan.              |  
+| `interface` | Manage and select the Wi-Fi interface.      |  
+| `attack`    | Executes the attack on the selected network.|  
+| `counter`   | Sets the number of connection attempts.     |  
+| `exit`      | Exits the program.                          |  
 
- More projects from TechnicalUserX:
- https://github.com/TechnicalUserX
+---
 
+## **Limitations**
+- Works on **Windows 10** and **Windows 11** only.  
+- Only supports network names (SSIDs) with **ASCII characters**.  
+- Cannot attack hidden networks.  
+- Performance may be slow due to its reliance on the `netsh` utility.  
+
+---
+
+## **Contributors**
+- **TheKvc**  
+- **Ankitamehra93**  
+- **lioen-dev**  
+- **akshatbhatter1**  
+
+Special thanks to **TheBATeam** and **AACINI** for their support.
+
+---
+
+For more projects, visit: [TechnicalUserX GitHub](https://github.com/TechnicalUserX)
 
 Press any key to continue...
-```
 
-## Contributors
-
-Huge thanks to everyone for their contributions to this project.
-
-- [TheKvc](https://github.com/TheKvc)
-- [Ankitamehra93](https://github.com/Ankitamehra93)
-- [lioen-dev](https://github.com/lioen-dev)
-- [akshatbhatter1](https://github.com/akshatbhatter1)
-
-**Special thanks to the [TheBATeam](https://github.com/TheBATeam), and AACINI.**
+---
+ 
