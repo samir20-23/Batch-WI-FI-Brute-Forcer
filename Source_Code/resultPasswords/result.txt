@@ -1,0 +1,20 @@
+ Batch Wi-Fi Brute Forcer Result
+Target     : attack_wifi
+At attempt : 2
+Password   : sAmIr@123
+
+Batch Wi-Fi Brute Forcer Result
+Target     : attack_wifi
+At attempt : 2
+Password   : sAmIr@123
+
+Batch Wi-Fi Brute Forcer Result
+Target     : attack_wifi
+At attempt : 2
+Password   : sAmIr@123
+
+Batch Wi-Fi Brute Forcer Result
+Target     : attack_wifi
+At attempt : 2
+Password   : sAmIr@123
+
