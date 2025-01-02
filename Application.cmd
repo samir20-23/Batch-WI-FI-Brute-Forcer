@@ -297,6 +297,23 @@ goto :eof
 
 :mainmenu
     cls
+    call :color_echo . cyan "                                          (                                  (                         "
+echo.
+call :color_echo . cyan "   (          )       )   (  (            )\ )        (              )       )\ )                       "
+echo.
+call :color_echo . cyan " ( )\    ) ( /(    ( /(   )\))(   '(     (()/( (    ( )\ (     (  ( /(  (   (()/(    (         (  (    "
+echo.
+call :color_echo . cyan " )((_)( /( )\())(  )\()) ((_)()\ ) )\ ___ /(_)))\   )((_))(   ))\ )\())))\   /(_))(  )(   (   ))\ )(   "
+echo.
+call :color_echo . cyan "((_)_ )(_)(_))/ )\((_)\  _(())\_)(((_|___(_))_((_) ((_)_(()\ /((_(_))//((_) (_))_|)\(()\  )\ /((_(()\  "
+echo.
+call :color_echo . cyan " | _ ((_)_| |_ ((_| |(_) \ \((_)/ /(_)   | |_  (_)  | _ )((_(_))(| |_(_))   | |_ ((_)((_)((_(_))  ((_)  "
+echo.
+call :color_echo . cyan " | _ / _` |  _/ _|| ' \   \ \/\/ / | |   | __| | |  | _ | '_| || |  _/ -_)  | __/ _ | '_/ _|/ -_)| '_|  "
+echo.
+call :color_echo . cyan " |___\__,_|\__\__||_||_|   \_/\_/  |_|   |_|   |_|  |___|_|  \_,_|\__\___|  |_| \___|_| \__|\___||_|   "
+echo.
+
     echo.
     call :color_echo . cyan "Batch Wi-Fi Brute Forcer"
     echo.
